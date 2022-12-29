@@ -9,8 +9,6 @@ import Col from "react-bootstrap/Col";
 import SongItem from "./SongItem/SongItem";
 
 
-
-
 const SongsList = () => {
 
     const [searchResult, setSearchResult] = useState();
@@ -18,10 +16,6 @@ const SongsList = () => {
     const [currentArtistName, setCurrentArtistName] = useState();
     const [skip, setSkip] = useState(true);
     const {data, isLoading} = useGetSongsQuery(currentArtistName, {skip});
-
-
-
-
 
 
     useEffect(() => {
@@ -57,8 +51,6 @@ const SongsList = () => {
     if (isLoading) return <h1>Loading...</h1>
 
 
-
-
     return (
         <>
             <SongsSearchField
@@ -67,26 +59,21 @@ const SongsList = () => {
             />
 
             <Row>
-                <Col lg={8} className='mx-auto'>
+                <Col lg={9} className='mx-auto'>
                     <Accordion>
                         {searchResult ? (
                                 <>
-                                    <Row>
-                                        <Col></Col>
-                                        <Col>
-                                            <span>Artist</span>
-                                        </Col>
-                                        <Col>
-                                            <span>Track</span>
-                                        </Col>
-                                        <Col>
-                                            <span>Collection</span>
-                                        </Col>
-                                        <Col xs={3}>
-                                            <span>Genre</span>
-                                        </Col>
-                                    </Row>
-
+                                    <Accordion.Item eventKey='one' className='listHeader'>
+                                        <Accordion.Header>
+                                            <Row className='w-100 align-items-center'>
+                                                <Col className='trackImgWrapper'></Col>
+                                                <Col>Artist</Col>
+                                                <Col>Track</Col>
+                                                <Col>Collection</Col>
+                                                <Col>Genre</Col>
+                                            </Row>
+                                        </Accordion.Header>
+                                    </Accordion.Item>
 
                                     {searchResult.map((item, index) => (
                                         <SongItem key={index}

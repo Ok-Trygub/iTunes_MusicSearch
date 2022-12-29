@@ -9,7 +9,6 @@ const SongItem = (props) => {
 
     const {index, currentArtistName, imgSource, trackName, collectionName, genreName} = props;
 
-
     return (
         <Accordion.Item eventKey={index}>
             <div style={{
@@ -19,8 +18,8 @@ const SongItem = (props) => {
             }}>
 
                 <Accordion.Header>
-                    <Row className='w-100'>
-                        <Col>
+                    <Row className='w-100 align-items-center'>
+                        <Col className='trackImgWrapper'>
                             <img src={imgSource} alt="song_img"/>
                         </Col>
                         <Col>
@@ -41,11 +40,7 @@ const SongItem = (props) => {
                     minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                 </Accordion.Body>
             </div>
-
-
         </Accordion.Item>
-
-
     );
 };
 

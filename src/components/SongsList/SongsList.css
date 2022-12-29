@@ -1,0 +1,16 @@
+.columnsNames {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.listHeader {
+    background-color: inherit;
+}
+
+.listHeader .accordion-button::after {
+    display: none;
+}
+
+.listHeader .accordion-button, .accordion-button:not(.collapsed) {
+    padding-bottom: 8px;
+}
