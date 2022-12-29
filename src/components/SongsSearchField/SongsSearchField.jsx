@@ -8,17 +8,17 @@ import Col from "react-bootstrap/Col";
 const SongsSearchField = (props) => {
 
     return (
-            <Row>
-                <Col xs={10} sm={8} md={6} lg={4} className='mx-auto mb-4'>
-                    <form className='d-flex'>
-                        <input type="text" className='w-100 searchInput' placeholder='The Beatles'
-                               onChange={props.inputHandler}/>
-                        <button className='searchBtn' onClick={props.searchHandler}>
-                            <Search/>
-                        </button>
-                    </form>
-                </Col>
-            </Row>
+        <Row>
+            <Col xs={10} sm={8} md={6} lg={4} className='mx-auto mb-4'>
+                <form className='d-flex'>
+                    <input type="text" className='w-100 searchInput' placeholder='The Beatles'
+                           onChange={props.inputHandler}/>
+                    <button className='searchBtn' onClick={props.searchHandler}>
+                        <Search/>
+                    </button>
+                </form>
+            </Col>
+        </Row>
     );
 };
 

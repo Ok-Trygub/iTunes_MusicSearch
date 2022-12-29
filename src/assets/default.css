@@ -1,12 +1,9 @@
-html {
+body {
     box-sizing: border-box;
+    background-color: #e6f3fa;
 }
 
 p {
     margin: 0;
     padding: 0;
-}
-
-.mainBgColor {
-    background-color: #dce6f2;
 }

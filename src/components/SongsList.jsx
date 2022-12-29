@@ -6,6 +6,9 @@ import SongsSearchField from "./SongsSearchField/SongsSearchField";
 import Tip from "./tip";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import SongItem from "./SongItem/SongItem";
+
+
 
 
 const SongsList = () => {
@@ -17,8 +20,9 @@ const SongsList = () => {
     const {data, isLoading} = useGetSongsQuery(currentArtistName, {skip});
 
 
-    if (searchResult) console.log(searchResult[1])
-    // if(searchResult) searchResult.map(item => console.log(item.trackViewUrl))
+
+
+
 
     useEffect(() => {
         if (!data) return;
@@ -33,6 +37,7 @@ const SongsList = () => {
 
 
     const InputHandler = ({target}) => {
+        if (!target.value.trim()) return;
         setSearchArtistName(target.value);
     }
 
@@ -52,6 +57,8 @@ const SongsList = () => {
     if (isLoading) return <h1>Loading...</h1>
 
 
+
+
     return (
         <>
             <SongsSearchField
@@ -59,40 +66,46 @@ const SongsList = () => {
                 inputHandler={InputHandler}
             />
 
-<Row>
-    <Col lg={8} className='mx-auto'>
-        <Accordion>
-            {searchResult ? searchResult.map((item, index) => (
-                    <Accordion.Item eventKey={index} key={index}>
+            <Row>
+                <Col lg={8} className='mx-auto'>
+                    <Accordion>
+                        {searchResult ? (
+                                <>
+                                    <Row>
+                                        <Col></Col>
+                                        <Col>
+                                            <span>Artist</span>
+                                        </Col>
+                                        <Col>
+                                            <span>Track</span>
+                                        </Col>
+                                        <Col>
+                                            <span>Collection</span>
+                                        </Col>
+                                        <Col xs={3}>
+                                            <span>Genre</span>
+                                        </Col>
+                                    </Row>
 
-                        <Accordion.Header>
-                            <Row className='w-100'>
-                                <Col>
-                                    <img src={item.artworkUrl60} alt=""/>
-                                </Col>
-                                <Col>
-                                    {currentArtistName}
-                                </Col>
-                                <Col>{item.collectionName}</Col>
-                                <Col>{item.primaryGenreName}</Col>
-                            </Row>
-                        </Accordion.Header>
 
-
-                        <Accordion.Body>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                            minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        </Accordion.Body>
-                    </Accordion.Item>
-                ))
-                :
-                <Tip/>
-            }
-        </Accordion>
-    </Col>
-</Row>
-
+                                    {searchResult.map((item, index) => (
+                                        <SongItem key={index}
+                                                  currentArtistName={currentArtistName}
+                                                  index={index}
+                                                  imgSource={item.artworkUrl60}
+                                                  trackName={item.trackName}
+                                                  collectionName={item.collectionName}
+                                                  genreName={item.primaryGenreName}
+                                        />
+                                    ))}
+                                </>
+                            )
+                            :
+                            <Tip/>
+                        }
+                    </Accordion>
+                </Col>
+            </Row>
         </>
     );
 };

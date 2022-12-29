@@ -1,0 +1,13 @@
+.accordion {
+    --bs-accordion-bg: #dce6f2;
+    --bs-accordion-border-color: inherit;
+}
+
+.accordion-button:focus {
+    border-color: inherit;
+    box-shadow: none;
+}
+
+.accordion-button, .accordion-button:not(.collapsed) {
+    background-color: inherit;
+}

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 function App() {
     return (
-        <div className="App mainBgColor">
+        <div className="App">
             <main>
                 <Container className='py-3'>
                     <SongsList/>
