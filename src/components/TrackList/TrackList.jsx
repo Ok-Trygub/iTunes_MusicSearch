@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './SongsList.css';
+import './TrackList.css';
 import Accordion from "react-bootstrap/Accordion";
 import {useGetSongsQuery} from "../../store/slices/iTunesApi";
 import SongsSearchField from "../SongsSearchField/SongsSearchField";
@@ -10,7 +10,7 @@ import SongItem from "../SongItem/SongItem";
 import Loader from '../Loader/Loader';
 
 
-const SongsList = () => {
+const TrackList = () => {
 
     const [searchResult, setSearchResult] = useState();
     const [searchArtistName, setSearchArtistName] = useState();
@@ -104,4 +104,4 @@ const SongsList = () => {
     );
 };
 
-export default SongsList;
+export default TrackList;

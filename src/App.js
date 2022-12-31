@@ -1,4 +1,4 @@
-import SongsList from "./components/SongsList/SongsList";
+import TrackList from "./components/TrackList/TrackList";
 import Container from "react-bootstrap/Container";
 
 
@@ -7,7 +7,7 @@ function App() {
         <div className="App">
             <main>
                 <Container className='py-3'>
-                    <SongsList/>
+                    <TrackList/>
                 </Container>
             </main>
         </div>
