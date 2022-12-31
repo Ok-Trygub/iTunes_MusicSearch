@@ -5,14 +5,12 @@ import Col from "react-bootstrap/Col";
 const Tip = () => {
     return (
         <Row>
-            <Col xs={10} sm={8} lg={6} className='mx-auto my-t'>
+            <Col xs={10} sm={8} md={6} lg={4} className='mx-auto my-t'>
                 <p>To search for audio content, input in the search field the name of the artist whose track list
                     you would like to receive.
-
-                    <span className='d-block my-2'>
-                        For example: "<b>The Beatles</b>".
-                    </span>
-
+                    For example: "<b>The Beatles</b>".
+                    <br/>
+                    <br/>
                     Then click the search button.</p>
             </Col>
         </Row>
