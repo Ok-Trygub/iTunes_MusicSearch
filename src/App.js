@@ -1,4 +1,4 @@
-import SongsList from "./components/SongsList";
+import SongsList from "./components/SongsList/SongsList";
 import Container from "react-bootstrap/Container";
 
 

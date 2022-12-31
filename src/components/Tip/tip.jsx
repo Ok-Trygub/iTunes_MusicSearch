@@ -10,7 +10,7 @@ const Tip = () => {
                     you would like to receive.
 
                     <span className='d-block my-2'>
-                        For example: "<b><em>The Beatles</em></b>".
+                        For example: "<b>The Beatles</b>".
                     </span>
 
                     Then click the search button.</p>

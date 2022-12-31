@@ -3,11 +3,24 @@ import './SongItem.css';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Accordion from "react-bootstrap/Accordion";
+import Note from "../../assets/icons/Note";
 
 
 const SongItem = (props) => {
 
-    const {index, currentArtistName, imgSource, trackName, collectionName, genreName} = props;
+    const {
+        index,
+        artistName,
+        imgSource,
+        trackName,
+        collectionName,
+        genreName,
+        trackCount,
+        collectionPrice,
+        trackPrice,
+        trackCensoredName
+    } = props;
+
 
     return (
         <Accordion.Item eventKey={index}>
@@ -23,7 +36,7 @@ const SongItem = (props) => {
                             <img src={imgSource} alt="song_img"/>
                         </Col>
                         <Col>
-                            {currentArtistName}
+                            {artistName}
                         </Col>
                         <Col>
                             {trackName}
@@ -33,11 +46,30 @@ const SongItem = (props) => {
                     </Row>
                 </Accordion.Header>
 
-
                 <Accordion.Body>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    <Row>
+                        <Col className='trackImgWrapper'></Col>
+                        <Col>
+                            <h1 className='pb-3 trackTitle pe-1'>{artistName} - {trackName}
+                                <div className='ps-1'><Note/></div>
+
+                            </h1>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col className='trackImgWrapper'></Col>
+                        <Col>
+                            <p><span className='fw-semibold'>Collection:</span> {collectionName}</p>
+                            <p><span className='fw-semibold'>Track Count:</span> {trackCount}</p>
+                            <p><span className='fw-semibold'>Price:</span> {collectionPrice} USD</p>
+                        </Col>
+
+                        <Col>
+                            <p><span className='fw-semibold'>Track Censored Name:</span> {trackCensoredName}</p>
+                            <p><span className='fw-semibold'>Track price:</span> {trackPrice} USD</p>
+                        </Col>
+                    </Row>
                 </Accordion.Body>
             </div>
         </Accordion.Item>
