@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './TrackList.css';
 import Accordion from "react-bootstrap/Accordion";
-import {useGetSongsQuery} from "../../store/slices/iTunesApi";
+import {useLazyGetSongsQuery} from "../../store/slices/iTunesApi";
 import SongsSearchField from "../SongsSearchField/SongsSearchField";
 import Tip from "../Tip/tip";
 import Row from "react-bootstrap/Row";
@@ -14,23 +14,16 @@ const TrackList = () => {
 
     const [searchResult, setSearchResult] = useState();
     const [searchArtistName, setSearchArtistName] = useState();
-    const [skip, setSkip] = useState(true);
-    const {data, isLoading} = useGetSongsQuery(searchArtistName, {skip});
+    const [searchArtist, {data, isLoading}] = useLazyGetSongsQuery();
 
 
     useEffect(() => {
         if (!data) return;
 
-        const getDataList = () => {
-            const dataList = Object.entries(data)[1];
+        const dataList = Object.entries(data)[1];
 
-            if (dataList[1].length === 0) setSearchResult(null);
-            else setSearchResult(dataList[1]);
-        }
-        getDataList();
-
-        setSkip(true);
-
+        if (dataList[1].length === 0) setSearchResult(null);
+        else setSearchResult(dataList[1]);
     }, [data]);
 
 
@@ -42,7 +35,7 @@ const TrackList = () => {
     const SearchHandler = (event) => {
         event.preventDefault();
 
-        setSkip(false);
+        searchArtist(searchArtistName);
     }
 
 
@@ -89,7 +82,8 @@ const TrackList = () => {
                     </Accordion>
                 </Col>
             </Row>
-        )}
+        )
+    }
 
 
     return (
