@@ -89,8 +89,7 @@ const SongsList = () => {
                     </Accordion>
                 </Col>
             </Row>
-        )
-    }
+        )}
 
 
     return (
