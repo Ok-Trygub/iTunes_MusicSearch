@@ -25,4 +25,6 @@ The rows in the list must alternate colors.
 On clicking one of the tracks, additional information should appear.
 On clicking again on the selected row, it should collapse back. When you select another row, the previous one should be collapsed.
 
+#### [You can see this app here](https://i-tunes-music-search.vercel.app/)
+
 ![Alt-текст](./src/assets/images/example.png)
